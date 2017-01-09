@@ -19,6 +19,9 @@ public class PageSourceCodeFinder {
     PageSourceCodeFinder(){
         URL url = null;
         try {
+        	/**
+        	 * Checks if the URL is available and it copies all the source code to a String.
+        	 */
             if(isNetAvailable()) {
                 url = new URL("http://www.cursbnr.ro/");
                 URLConnection googleConnection = url.openConnection();
@@ -31,6 +34,9 @@ public class PageSourceCodeFinder {
                 in.close();
             }
             else{
+            	/**
+            	 * If there is no internet connection there will be an Alert
+            	 */
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
                 alert.setHeaderText("Error");
@@ -50,7 +56,10 @@ public class PageSourceCodeFinder {
     public String getSourceCode(){
         return pageSourceCode;
     }
-
+/**
+ * Checks if there is Internet available
+ * @return
+ */
     public boolean isNetAvailable(){
         try {
             URL url = new URL("http://www.cursbnr.ro/");

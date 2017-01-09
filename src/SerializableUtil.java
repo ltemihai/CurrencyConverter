@@ -8,7 +8,7 @@ import java.util.TreeMap;
  */
 public class SerializableUtil {
     /**
-     * Metoda de deserializare a unui TreeMap
+     * This method deserialize the ArrayList of currencies
      * @param fileName
      * @return
      * @throws IOException
@@ -24,7 +24,7 @@ public class SerializableUtil {
         return currencyList;
     }
     /**
-     * Metoda de serializare a unui TreeMap
+     * This method serialize the ArrayList of currencies
      * @param tree
      * @param fileName
      * @throws IOException

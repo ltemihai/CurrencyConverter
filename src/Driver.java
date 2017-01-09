@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by Mihai on 02.09.2016.
+ * This class lauches the application
  */
 public class Driver {
 

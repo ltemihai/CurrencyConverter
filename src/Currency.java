@@ -2,10 +2,10 @@ import java.io.Serializable;
 
 /**
  * Created by Mihai on 03.09.2016.
+ * The currency class which serves as the Model class from MVC
  */
 public class Currency implements Serializable {
     private String name;
-   // private String description;
     private double value;
 
     public String getName() {
@@ -15,14 +15,6 @@ public class Currency implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
-   // public String getDescription() {
-        //return description;
-    //}
-   //
-   //public void setDescription(String description) {
-     //   this.description = description;
-   // }
 
     public double getValue() {
         return value;

@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
+ * The Controller class from MVC
  * Created by Mihai on 03.09.2016.
  */
 public class StartStage extends Application{
@@ -9,14 +10,20 @@ public class StartStage extends Application{
         CurrencyFinder currencyFinder = new CurrencyFinder();
         GUI gui = new GUI(currencyFinder);
         Calculator calculator = new Calculator();
-        primaryStage.setTitle("Convertor Valutar - Oltean Mihai");
+        primaryStage.setTitle("Currency Converter - Oltean Mihai");
         primaryStage.setScene(gui.getScene());
 
+        /**
+         * It adds all the currencies found on the webpage into a comboBox
+         */
         for (int i=0; i<currencyFinder.getCurrencyArrayList().size();i++){
             gui.getComboBox().getItems().add(currencyFinder.getCurrencyArrayList().get(i));
             gui.getComboBoxTo().getItems().add(currencyFinder.getCurrencyArrayList().get(i));
         }
 
+        /**
+         * Usage of Lambda expressions, very useful.
+         */
         gui.getComboBox().setOnAction((event) -> {
             String valueName = gui.getComboBox().getSelectionModel().getSelectedItem().getName();
             for(int i=0;i<currencyFinder.getCurrencyArrayList().size();i++)

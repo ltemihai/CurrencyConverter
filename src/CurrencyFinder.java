@@ -3,6 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * This class finds all the currencies from BNR site
  * Created by Mihai on 03.09.2016.
  */
 public class CurrencyFinder {
@@ -22,21 +23,23 @@ public class CurrencyFinder {
     public void getCurrencyFromSourceCode(){
         String codeGroupCurrency = "";
         String codeGroupValue = "";
-
+      
+        //Gets the source coude from the internet
         String sourceCode = pageSourceCodeFinder.getSourceCode();
-
+        
+        /**
+         * I used Pattern/Matcher to get the currencies and the values from the web page
+         */
         Pattern patternCurrency = Pattern.compile("<td>(\\S+)</td><td>");
         Matcher matcherCurrency = patternCurrency.matcher(sourceCode);
-
-       // Pattern patternDescription = Pattern.compile("\">(.+?)</a></td><td ");
-       // Matcher matcherDescription = patternDescription.matcher(sourceCode);
 
         Pattern patternValue = Pattern.compile("<td align='right'><b>(\\S+)</b></td>");
         Matcher matcherValue = patternValue.matcher(sourceCode);
 
-
+        /**
+         * This is the pattern that I found and it fits for that web page.
+         */
         while(matcherCurrency.find() && matcherValue.find()) {
-
             codeGroupCurrency = matcherCurrency.group();
             if(codeGroupCurrency.contains("<b>"))
                 codeGroupCurrency = codeGroupCurrency.substring(7,10);
@@ -44,10 +47,6 @@ public class CurrencyFinder {
                 codeGroupCurrency = codeGroupCurrency.substring(4,10);
             else
                 codeGroupCurrency = codeGroupCurrency.substring(4,7);
-
-           // codeGroupDescription = matcherDescription.group();
-           // codeGroupDescription = codeGroupDescription.substring(11);
-
 
             codeGroupValue = matcherValue.group();
             codeGroupValue = codeGroupValue.substring(21);
@@ -113,6 +112,9 @@ public class CurrencyFinder {
     }
     //////////////
 
+    /**
+     * I've added an reference currency, which is RON(1 RON = 1 RON lol)
+     */
     public CurrencyFinder(){
         this.pageSourceCodeFinder = new PageSourceCodeFinder();
         this.setCurrencyArrayList(new ArrayList<Currency>());

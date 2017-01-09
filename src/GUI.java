@@ -6,10 +6,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 /**
+ * This is the View class from MVC
  * Created by Mihai on 03.09.2016.
  */
 public class GUI {
 
+	/**
+	 * I've used JavaFX to work out the GUI.
+	 */
     private ComboBox<Currency> comboBox;
     private ComboBox<Currency> comboBoxTo;
     private Pane layout;
@@ -107,13 +111,13 @@ public class GUI {
     public void setComboBoxTo(ComboBox<Currency> comboBoxTo) { this.comboBoxTo = comboBoxTo; }
 
     public GUI(CurrencyFinder currencyFinder){
-        setText(new Text("Convertor online"));
+        setText(new Text("Online Converter"));
         getText().relocate(100,40);
 
-        setValueText(new Text("Alegeti valuta"));
+        setValueText(new Text("Choose currency"));
         getValueText().relocate(180,150);
 
-        setAmmountText(new Text("Introduceti cantitatea"));
+        setAmmountText(new Text("Enter quantity"));
         getAmmountText().relocate(220,40);
 
 
