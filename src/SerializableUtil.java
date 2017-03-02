@@ -25,7 +25,7 @@ public class SerializableUtil {
     }
     /**
      * This method serialize the ArrayList of currencies
-     * @param tree
+     * @param currencyList
      * @param fileName
      * @throws IOException
      */
